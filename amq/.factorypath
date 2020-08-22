@@ -1,0 +1,19 @@
+<factorypath>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/qpid/qpid-jms-client/0.51.0.redhat-00002/qpid-jms-client-0.51.0.redhat-00002.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/geronimo/specs/geronimo-jms_2.0_spec/1.0.0.alpha-2-redhat-2/geronimo-jms_2.0_spec-1.0.0.alpha-2-redhat-2.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/qpid/proton-j/0.33.4.redhat-00001/proton-j-0.33.4.redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-buffer/4.1.48.Final-redhat-00001/netty-buffer-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-common/4.1.48.Final-redhat-00001/netty-common-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-handler/4.1.48.Final-redhat-00001/netty-handler-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-resolver/4.1.48.Final-redhat-00001/netty-resolver-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-codec/4.1.48.Final-redhat-00001/netty-codec-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-transport/4.1.48.Final-redhat-00001/netty-transport-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-transport-native-epoll/4.1.48.Final-redhat-00001/netty-transport-native-epoll-4.1.48.Final-redhat-00001-linux-x86_64.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-transport-native-unix-common/4.1.48.Final-redhat-00001/netty-transport-native-unix-common-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-transport-native-kqueue/4.1.48.Final-redhat-00001/netty-transport-native-kqueue-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/io/netty/netty-codec-http/4.1.48.Final-redhat-00001/netty-codec-http-4.1.48.Final-redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/projectlombok/lombok/1.18.12/lombok-1.18.12.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/slf4j/slf4j-api/1.7.30.redhat-00001/slf4j-api-1.7.30.redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/log4j/log4j/1.2.17.redhat-3/log4j-1.2.17.redhat-3.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/slf4j/slf4j-log4j12/1.7.30.redhat-00001/slf4j-log4j12-1.7.30.redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+</factorypath>

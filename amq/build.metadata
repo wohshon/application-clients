@@ -1,0 +1,12 @@
+# Created by buildmetadata-maven-plugin 1.7.0 ( SHA: 6f444cae ) 
+build.maven.version=3.6.3
+build.version=1.0-SNAPSHOT
+build.java.vm=OpenJDK 64-Bit Server VM
+build.version.full=1.0-SNAPSHOT
+build.java.compiler=HotSpot 64-Bit Tiered Compilers
+build.maven.execution.cmdline=clean compile
+build.groupId=com.redhat.apps.clients
+build.java.vendor=N/A
+build.java.runtime.name=OpenJDK Runtime Environment
+build.java.runtime.version=11.0.8+10-LTS
+build.artifactId=amq

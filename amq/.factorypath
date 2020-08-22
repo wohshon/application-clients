@@ -16,4 +16,6 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/slf4j/slf4j-api/1.7.30.redhat-00001/slf4j-api-1.7.30.redhat-00001.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/log4j/log4j/1.2.17.redhat-3/log4j-1.2.17.redhat-3.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/slf4j/slf4j-log4j12/1.7.30.redhat-00001/slf4j-log4j12-1.7.30.redhat-00001.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/messaginghub/pooled-jms/1.1.0.redhat-00002/pooled-jms-1.1.0.redhat-00002.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/apache/commons/commons-pool2/2.7.0.redhat-00001/commons-pool2-2.7.0.redhat-00001.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>

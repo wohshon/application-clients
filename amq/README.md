@@ -45,3 +45,6 @@ Consumer runs in a loop, it quits when a message "QUIT" is received.
 `java  -Dmessage=Hello -Dloop=5 -Ddelay=100 -jar target/amq-1.0-SNAPSHOT-jar-with-dependencies.jar `
 
 
+### JMS POOL library
+
+`PooledJMSApp` client is available as well, same parameters accespted , only supports mvn invocation

@@ -73,7 +73,7 @@ public class App {
         log.info("Connecting to {}, queue {} for {}", brokerURL, queue, mode);
         // Create connection
         try {
-            ConnectionFactory connectionFactory = new JmsConnectionFactory(this.brokerURL);
+            connectionFactory = new JmsConnectionFactory(this.brokerURL);
             connection = connectionFactory.createConnection(this.userId, this.password);
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             jmsQueue = session.createQueue(queue);

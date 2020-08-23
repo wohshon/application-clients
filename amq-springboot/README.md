@@ -9,7 +9,7 @@
 
 - app exposes a rest endpoint to send a message, random UUID generated as corelationId, hardcoded with a `replyToQueue` reply queue.
 
-- app listens to same queue to print out the payload
+- app listens to same queue to print out the payload (if you want a separate producer and consumer client, comment out the `@JMSListener` annotation before running the producer, in this case, it won't listen to the queue while functioning as a producer)
 
 ### Invocation via mvn
 

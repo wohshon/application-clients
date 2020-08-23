@@ -48,3 +48,15 @@ Consumer runs in a loop, it quits when a message "QUIT" is received.
 ### JMS POOL library
 
 `PooledJMSApp` client is available as well, same parameters accepted , only supports `mvn` invocation
+
+- additional param , `conn.max` to set maximum connections
+
+e.g 
+
+- Listening
+
+`mvn clean compile  exec:java -Dexec.mainClass="com.redhat.apps.clients.PooledJMSApp" -Dmode=RECV -Dconn.max=5`
+
+- Sending 
+
+`mvn clean compile  exec:java -Dexec.mainClass="com.redhat.apps.clients.PooledJMSApp" -Dmessage=test -Dloop=1 -Ddelay=1000 -Dconn.max=5`

@@ -35,8 +35,8 @@ public class PooledJMSApp {
         props.setProperty("mode", System.getProperty("mode") != null ? System.getProperty("mode") : "SEND");
         props.setProperty("loop", System.getProperty("loop") != null ? System.getProperty("loop") : "1");
         props.setProperty("delay", System.getProperty("delay") != null ? System.getProperty("delay") : "0");
-        props.setProperty("queue",
-                System.getProperty("queue") != null ? System.getProperty("queue") : "address0.queue1");
+        props.setProperty("queue", System.getProperty("queue") != null ? System.getProperty("queue") : "address0.queue1");
+        props.setProperty("conn.max", System.getProperty("conn.max") != null ? System.getProperty("conn.max") : "3");
         PooledJMSApp client = new PooledJMSApp(props);
         client.connect();
 
@@ -50,6 +50,7 @@ public class PooledJMSApp {
         queue = props.getProperty("queue");
         loop = Integer.parseInt(props.getProperty("loop"));
         delay = Integer.parseInt(props.getProperty("delay"));
+        maxConn = Integer.parseInt(props.getProperty("conn.max"));
         message = props.getProperty("message");
     }
 
@@ -58,7 +59,7 @@ public class PooledJMSApp {
     String password;
     String mode;
     String message;
-    int loop, delay;
+    int loop, delay, maxConn;
     String queue;
     ConnectionFactory connectionFactory;
     Connection connection;
@@ -71,6 +72,8 @@ public class PooledJMSApp {
         connectionFactory = new JmsConnectionFactory(this.brokerURL);
         try {
             poolingFactory.setConnectionFactory(connectionFactory);
+            poolingFactory.setMaxConnections(maxConn);
+            
             connection = poolingFactory.createConnection(this.userId, this.password);
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
             jmsQueue = session.createQueue(queue);

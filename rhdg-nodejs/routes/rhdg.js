@@ -19,7 +19,8 @@ router.get('/get/:cache/:key', function(req, res, next) {
         console.log('get(key)=' + value); 
         res.send(value);
       });
-      return client.disconnect();
+      return showGet.finally(
+        function() { return client.disconnect(); }); 
     //client.disconnect();
   
   }).catch(function(error) {
@@ -40,7 +41,8 @@ router.put('/put/:cache/:key/:val', function(req, res, next) {
     
     console.log('Connected to '+req.params.cache);
     var clientPut = client.put(req.params.key, req.params.val); 
-    return client.disconnect();
+    return clientPut.finally(
+      function() { return client.disconnect(); }); 
     //client.disconnect();
   
   }).catch(function(error) {

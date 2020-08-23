@@ -47,4 +47,4 @@ Consumer runs in a loop, it quits when a message "QUIT" is received.
 
 ### JMS POOL library
 
-`PooledJMSApp` client is available as well, same parameters accespted , only supports mvn invocation
+`PooledJMSApp` client is available as well, same parameters accepted , only supports `mvn` invocation

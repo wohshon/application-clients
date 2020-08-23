@@ -7,6 +7,7 @@ import javax.jms.Message;
 import javax.jms.TextMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.annotation.EnableJms;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsTemplate;
@@ -43,13 +44,16 @@ public class Controller {
 
     }
 
+    @Value("${listen.queue}")
+    private String lqueue;
+
     @JmsListener(destination = "${listen.queue}")
     public void listen(Message msg) {
         try {
-            System.out.println("listen queue");
-            System.out.println(((TextMessage) msg).getText());
-            System.out.println(((TextMessage) msg). getJMSCorrelationID());
-            System.out.println(((TextMessage) msg).getJMSReplyTo());
+            log.info("listening on queue {}", lqueue);
+            log.info("msg: {}", ((TextMessage) msg).getText());
+            log.info("correlation Id: {}",((TextMessage) msg). getJMSCorrelationID());
+            log.info("replyToQueue: {}",((TextMessage) msg).getJMSReplyTo());
 
         } catch (JMSException e) {
             e.printStackTrace();

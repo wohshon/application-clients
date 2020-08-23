@@ -18,7 +18,21 @@ Simple java POJO AMQP client for testing of AMQ Broker, covers producing and con
 - delay, for sending, delay between sending , in ms
 - queue, queue name 
 
-Consumer runs in a loop, it quits when a message "QUIT" is received.
+##### SSL endpoint
+
+- To connect to a SSL endpoint, e.g. over TLS route in OCP, you will need additional parameters, `amqps://` , and trust store locations etc
+
+e.g. :
+
+`amqps://192.168.0.110:5673?transport.trustStoreLocation=./client.ts&transport.trustStorePassword=password&transport.verifyHost=false`
+
+- Refer to this sample [ssl client](https://github.com/wohshon/simple-amq-client/tree/ssl-client)
+
+- //TODO, update SSL test case here
+
+
+##### Consumer 
+- Consumer runs in a loop, it quits when a message "QUIT" is received.
 
 #### Running using mvn commands
 

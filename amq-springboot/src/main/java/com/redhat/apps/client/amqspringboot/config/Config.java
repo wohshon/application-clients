@@ -22,7 +22,7 @@ public class Config {
     @Bean
     public AMQP10JMSConnectionFactoryCustomizer myAMQPConfig() {
         return (factory) -> {
-            log.info("setting up amqp connection factory");
+            log.info("setting up amqp connection factory "+this.brokerURL);
             Map<String, String> props=new HashMap<String, String>();
             props.put("loadBalancingPolicyClassName", "org.apache.activemq.artemis.api.core.client.loadbalance.RoundRobinConnectionLoadBalancingPolicy");
             factory.setUsername("admin");

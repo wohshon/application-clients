@@ -35,5 +35,5 @@
 
 - executing jar file
 
-`java -jar target/amq-springboot-0.0.1-SNAPSHOT.jar -Dbroker.url=amqp://192.168.0.110:5672 -Dlisten.queue=address0.queue1`
+`java -jar -Dbroker.url=amqp://192.168.0.110:5672 -Dlisten.queue=address0.queue1 target/amq-springboot-0.0.1-SNAPSHOT.jar` 
 

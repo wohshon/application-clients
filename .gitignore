@@ -3,3 +3,5 @@
 **/build.metadata
 **/.settings
 **/.vscode
+**/target
+**/.mwn

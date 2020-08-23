@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>dev.snowdrop</groupId>
+		<artifactId>snowdrop-dependencies</artifactId>
+		<version>2.2.6.SP1-redhat-00001</version>
+	  </parent>
+	<groupId>com.redhat.apps.client</groupId>
+	<artifactId>amq-springboot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>amq-springboot</name>
+	<description>AMQ client on Spring Boot</description>
+
+	<properties>
+		<java.version>11</java.version>
+		<spring-boot-maven-plugin.version>2.2.6.RELEASE</spring-boot-maven-plugin.version>
+	</properties>
+	<dependencyManagement>
+	    <dependencies>
+	      <dependency>
+		<groupId>dev.snowdrop</groupId>
+		<artifactId>snowdrop-dependencies</artifactId>
+		<version>2.2.6.SP1-redhat-00001</version>
+		<type>pom</type>
+		<scope>import</scope>
+	      </dependency>
+	    </dependencies>
+	  </dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.amqphub.spring</groupId>
+			<artifactId>amqp-10-jms-spring-boot-starter</artifactId>
+		  </dependency>
+	  
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot-maven-plugin.version}</version>
+				<executions>
+				  <execution>
+				  <goals>
+					  <goal>repackage</goal>
+				  </goals>
+				  </execution>
+				</executions>
+				  <configuration>
+					<redeploy>true</redeploy>
+				  </configuration>
+				</plugin>
+      <!-- additional plugin for jdk 11 -->
+      <!-- https://winterbe.com/posts/2018/08/29/migrate-maven-projects-to-java-11-jigsaw/-->
+      <plugin>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>versions-maven-plugin</artifactId>
+		<version>2.5</version>
+		<configuration>
+			<generateBackupPoms>false</generateBackupPoms>
+		</configuration>
+	</plugin>
+	<plugin>
+		<artifactId>maven-compiler-plugin</artifactId>
+		<version>3.8.0</version>
+		<configuration>
+		  <release>11</release>
+	  </configuration>          
+	  </plugin>				
+		</plugins>
+	</build>
+	<repositories>
+	    <repository>
+	      <id>redhat-ga</id>
+	      <name>Red Hat GA Repository</name>
+	      <url>https://maven.repository.redhat.com/ga/</url>
+	    </repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+		      <id>redhat-ga</id>
+		      <name>Red Hat GA Repository</name>
+		      <url>https://maven.repository.redhat.com/ga/</url>
+		</pluginRepository>
+	</pluginRepositories>
+</project>

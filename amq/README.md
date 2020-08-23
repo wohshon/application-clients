@@ -2,12 +2,12 @@
 
 Simple java POJO AMQP client for testing of AMQ Broker, covers producing and consuming usecases
 
-### Setup
+#### Setup
 
 - JDK 11
 - amqp jms clients
 
-### Parameters  (values are set as defaults to my lab env)
+#### Parameters  (values are set as defaults to my lab env)
 
 - broker.url, URL to connect to , e.g. `amqp://hostname:port/` , supports failover url as well
 - user.id
@@ -20,7 +20,7 @@ Simple java POJO AMQP client for testing of AMQ Broker, covers producing and con
 
 Consumer runs in a loop, it quits when a message "QUIT" is received.
 
-### Running using mvn commands
+#### Running using mvn commands
 
 - Listening to a queue (using default values for host, queuename etc)
 
@@ -30,7 +30,7 @@ Consumer runs in a loop, it quits when a message "QUIT" is received.
 
 `mvn exec:java -Dexec.mainClass="com.redhat.apps.clients.App" -Dmessage=hello -Dloop=5 -Ddelay=1000`
 
-### package and run as jar file
+#### package and run as jar file
 
 - Create jar file
 

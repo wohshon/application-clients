@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.3.RELEASE</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.redhat.apps.client</groupId>
+	<artifactId>rhdg-springboot</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>rhdg-springboot</name>
+	<description>Infinispan client on Spring Boot</description>
+
+	<properties>
+		<java.version>11</java.version>
+		<version.infinispan>10.1.8.Final-redhat-00001</version.infinispan>
+	</properties>
+	  
+	  <dependencyManagement>
+		<dependencies>
+		  <dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-bom</artifactId>
+			<version>${version.infinispan}</version>
+			<type>pom</type>
+			<scope>import</scope>
+		  </dependency>
+		</dependencies>
+	  </dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.infinispan</groupId>
+			<artifactId>infinispan-client-hotrod</artifactId>
+		  </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+		  <id>redhat-ga</id>
+		  <name>Red Hat GA Repository</name>
+		  <url>https://maven.repository.redhat.com/ga/</url>
+		</repository>
+	  </repositories>
+	  <pluginRepositories>
+		<pluginRepository>
+		  <id>redhat-ga</id>
+		  <name>Red Hat GA Repository</name>
+		  <url>https://maven.repository.redhat.com/ga/</url>
+		</pluginRepository>
+	  </pluginRepositories>
+</project>

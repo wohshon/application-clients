@@ -7,6 +7,7 @@ public interface GenericCacheService<K, V extends GenericEntity<T>, T> {
  
     V get(K key);
     V put(K key, V value);
-    K delete(K key);
+    V delete(K key);
+    V update(K key, V value);
     
 }

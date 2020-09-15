@@ -5,8 +5,10 @@ import com.redhat.apps.client.rhdgspringboot.services.GenericCacheService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,9 +43,19 @@ public class Controller implements GenericController<String, PersonEntity, Strin
         return cacheService.put(key, value);
     }
     @Override
-    public String delete(String key) {
+    @DeleteMapping("/delete/{key}")
+    public PersonEntity delete(@PathVariable String key) {
         log.info("Delete : {}", key);
-
         return cacheService.delete(key);
     }
+
+    @Override
+    @PostMapping("/update/{key}")
+    public PersonEntity update(@PathVariable String key, @RequestBody PersonEntity value) {
+        log.info("Update : {}", key);
+        log.info("value {} {}", value.getName(), value.getEmail());
+        return cacheService.update(key, value);
+    }
+
+
 }

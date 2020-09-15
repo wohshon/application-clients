@@ -1,0 +1,29 @@
+### Hotrod java client wrapped in SpringBoot app
+
+#### Simple CRUD usecases based on a `PersonEntity` data type
+
+- Pre-req:
+  - Running red hat datagrid instance at endpoint defined in hotrod-client.properties
+  - create a cache, enter the cachename in application.properties `cacheName`
+
+- start up app
+
+`mvn clean compile spring-boot:run`
+
+- PUT entry
+
+`curl -X PUT -H 'Content-type: application/json' -d '{"id":"001","name":"ws","email": "a@b.com"}' <host>:<port>/api/put/001`
+
+
+- GET entry
+
+`curl -X GET <host>:<port>/api/get/001`
+
+- DELETE entry
+
+`curl -X DELETE <host>:<port>/api/get/001`
+
+- UPDATE entry
+`curl -X POST -H 'Content-type: application/json' -d '{"id":"001","name":"ws","email": "a@b.com"}' <host>:<port>/api/update/001`
+
+

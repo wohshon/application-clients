@@ -2,6 +2,8 @@
 
 ExpressJS REST API to interact with a RHDG 8.0.1 cluster, supports put, get , delete
 
+#### DOES NOT WORK WITH 8.1
+
 #### Pre req
 
 - running RHDG cluster

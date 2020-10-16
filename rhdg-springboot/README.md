@@ -1,4 +1,4 @@
-### Hotrod java client wrapped in SpringBoot app
+### Hotrod java client wrapped in SpringBoot app, RHDG 8.1.0
 
 #### Simple CRUD usecases based on a `PersonEntity` data type
 

@@ -11,7 +11,7 @@
     "ejs": "*",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
-    "infinispan": "file:../../../tx/redhat-datagrid-8.0.1-nodejs-client/infinispan-0.7.0-Final-redhat-00003.tgz",
+    "infinispan": "file:infinispan-0.8.0-Final-redhat-00002.tgz",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
   }

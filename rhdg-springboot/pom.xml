@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<version.infinispan>10.1.8.Final-redhat-00001</version.infinispan>
+		<version.infinispan>11.0.3.Final-redhat-00001</version.infinispan>
 	</properties>
 	  
 	  <dependencyManagement>

@@ -7,6 +7,7 @@ import java.util.Properties;
 
 import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.infinispan.client.hotrod.configuration.ConfigurationBuilder;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
@@ -17,6 +18,8 @@ public class CacheHelper {
     
 
     RemoteCacheManager rcm;
+    @Value("${hotrod.properties}")
+    String propertiesFile;
 
     RemoteCacheManager getRemoteCacheManager() {
         if (rcm != null) {
@@ -25,7 +28,7 @@ public class CacheHelper {
         ConfigurationBuilder b = new ConfigurationBuilder();
         
         Properties p = new Properties();
-        try (InputStream input = this.getClass().getClassLoader().getResourceAsStream("hotrod-client.properties")) {
+        try (InputStream input = this.getClass().getClassLoader().getResourceAsStream(propertiesFile)) {
 
             //load a properties file from class path, inside static method
             p.load(input);

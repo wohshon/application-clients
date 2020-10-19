@@ -27,4 +27,16 @@
 
 	`curl -X POST -H 'Content-type: application/json' -d '{"id":"001","name":"ws","email": "a@b.com"}' <host>:<port>/api/update/001`
 
+#### OpenShift Routes , based on Datagrid Operator for DG 8.1
+
+- Deploy operator, rsh into pod, run command to create cache
+
+- getting the certs 
+
+		oc extract secret/example-infinispan-cert-secret -n ${namespace} --keys=tls.crt --to=/tmp
+
+- update the route names in hotrod properties
+
+- update application.properties to use the correct cache name and properties files
+
 

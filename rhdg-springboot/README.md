@@ -1,5 +1,18 @@
 ### Hotrod java client wrapped in SpringBoot app, RHDG 8.1.0
 
+
+#### Update for internal-client branch
+
+In hot rod connection properties file
+
+- connections endpoints updated to service based 
+- removed TLS related config
+
+to deploy on OCP 
+
+		$ oc new-app openjdk-11-rhel8:1.0~https://github.com/wohshon/application-clients#internal-client --context-dir=rhdg-springboot --name=client
+
+
 #### Simple CRUD usecases based on a `PersonEntity` data type
 
 - Pre-req:

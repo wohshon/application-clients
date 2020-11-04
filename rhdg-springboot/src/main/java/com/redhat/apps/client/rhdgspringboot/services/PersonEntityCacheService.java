@@ -6,8 +6,10 @@ import org.infinispan.client.hotrod.RemoteCacheManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import lombok.extern.slf4j.Slf4j;
 
 @Component("PersonEntity")
+@Slf4j
 public class PersonEntityCacheService implements GenericCacheService<String, PersonEntity, String> {
     
     @Autowired
@@ -34,6 +36,9 @@ public class PersonEntityCacheService implements GenericCacheService<String, Per
     @Override
     public PersonEntity put(String key, PersonEntity value) {
         RemoteCacheManager rcm = cacheHelper.getRemoteCacheManager();
+        log.info("cache name: {}",cacheName);
+        log.info("Cache : {}", rcm.getCache(cacheName));
+
         rcm.getCache(cacheName).put(key, value);
         
         return value;

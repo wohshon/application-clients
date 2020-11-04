@@ -6,12 +6,47 @@
 In hot rod connection properties file
 
 - connections endpoints updated to service based 
-- removed TLS related config
+- create a secret to be mounted into pod. The tls-2.crt is extracted from  `example-infinispan-cert-secret in the project of the infinispan cluster
 
-to deploy on OCP 
+	$ oc create secret generic dg-crt --from-file=/tmp/tls-2.crt 
+
+
+- to deploy on OCP 
 
 		$ oc new-app openjdk-11-rhel8:1.0~https://github.com/wohshon/application-clients#internal-client --context-dir=rhdg-springboot --name=client
+		$ oc expose svc client
 
+- patch the deployment object to mount the secret, adding the `volumes` and `volumeMounts` portion
+
+e.g.
+```
+    spec:
+      containers:
+      - image: image-registry.openshift-image-registry.svc:5000/apps/client@sha256:c881c21c6c55165d1acd918ae8c211d5ab7f96be7842c6dc02cb962206b87e53
+        imagePullPolicy: IfNotPresent
+        name: client
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+        - containerPort: 8443
+          protocol: TCP
+        - containerPort: 8778
+          protocol: TCP
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /tmp/crt
+          name: mydir
+      volumes:
+      - name: mydir
+        secret:
+          defaultMode: 420
+          secretName: dg-crt
+
+```
+
+- To test the app, invoke the springboot app REST endpoint via the route
 
 #### Simple CRUD usecases based on a `PersonEntity` data type
 

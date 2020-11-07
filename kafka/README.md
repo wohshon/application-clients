@@ -9,8 +9,8 @@ exposes a rest endpoint to drop a message into kafka and streamed on a web page.
 - `/api/send/{msg}` 
 
 1. drops message into kafka `topic1`, via smallrye
-2. picked up by smallrye and streams to web page at `msg.html`, http://<host>:8080/msg.html
-or the raw data at http://<host>:8080/api/stream
+2. picked up by smallrye and streams to web page at `msg.html`, http://host:8080/msg.html
+or the raw data at http://host:8080/api/stream
 
 
 

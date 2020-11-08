@@ -6,6 +6,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 import org.jboss.resteasy.annotations.SseElementType;
@@ -23,12 +24,15 @@ public class AppResource {
 
     Logger log = LoggerFactory.getLogger(this.getClass());
     
+    @ConfigProperty(name = "greeting.msg")
+    String greeting;
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/hello/{msg}")
     public String hello(@PathParam String msg) {
-        log.info("got message {}",msg);
-        return msg;
+        log.info("got message {} {}",greeting,msg);
+        return greeting.concat(" ").concat(msg);
     }
 
     //stream data to web

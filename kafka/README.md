@@ -1,19 +1,21 @@
 
-# kafka project
-
-## add on to the original readme
+# Quarkus client for kafka using smallrye
 
 
-exposes a rest endpoint to drop a message into kafka and streamed on a web page. Not really reactive, but just a simple end to end flow
+Sample app to have a end to end flow to read / write to Kafka , not really reactive, just something to test out the connectivity.
 
-- `/api/send/{msg}` 
+- Exposes a rest endpoint to drop a message into kafka and streamed the text on a web page. 
+
+		/api/send/{msg}
 
 1. drops message into kafka `topic1`, via smallrye
 2. picked up by smallrye and streams to web page at `msg.html`, http://host:8080/msg.html
 or the raw data at http://host:8080/api/stream
 
+You gotta have a kafka instance running, adjust the connectivity details at `applications.properties`.
 
 
+### keeping the original quickstart's readme for reference
 
 -----------------------------------------------------------------------------
 This project uses Quarkus, the Supersonic Subatomic Java Framework.

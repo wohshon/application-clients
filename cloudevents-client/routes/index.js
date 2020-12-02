@@ -11,6 +11,7 @@ const {Receiver} = require("cloudevents");
  
 router.post("/", (req, res) => {
   // body and headers come from an incoming HTTP request, e.g. express.js
+  console.log("got events:");
   const receivedEvent = Receiver.accept(req.headers, req.body);
   console.log(receivedEvent);
 });

@@ -1,8 +1,29 @@
 ### nodejs Infinispan client
 
-ExpressJS REST API to interact with a RHDG 8.0.1 cluster, supports put, get , delete
+ExpressJS REST API to interact with a RHDG 8.1 cluster, supports put, get , delete
 
-#### DOES NOT WORK WITH 8.1
+#### nodejs infinispan client Does not support authentication https://issues.redhat.com/projects/HRJS/issues/HRJS-36
+
+Need to disable security 
+
+Change 
+
+```
+<endpoints socket-binding="default" security-realm="default">
+   <hotrod-connector name="hotrod"/>
+   <rest-connector name="rest"/>
+</endpoints>
+
+```
+to:
+
+```
+<endpoints socket-binding="default">
+   <hotrod-connector name="hotrod"/>
+   <rest-connector name="rest"/>
+</endpoints>
+
+```
 
 #### Pre req
 

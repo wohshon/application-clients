@@ -37,20 +37,26 @@ router.get('/get/:cache/:key', function(req, res, next) {
 router.put('/put/:cache/:key/:val', function(req, res, next) {
   var connected = infinispan.client({port: process.env.DG_PORT || 11222, host: process.env.DG_HOST || '192.168.0.110'}, {cacheName: req.params.cache});
   console.log(connected);
-  connected.then(function (client) {
-    
-    console.log('Connected to '+req.params.cache);
-    var clientPut = client.put(req.params.key, req.params.val); 
-    return clientPut.finally(
-      function() { return client.disconnect(); }); 
-    //client.disconnect();
+  var key = req.params.key;
+  var value = req.params.val;
+
+  connected.then(function(client) {
+    console.log("Connected");
+    var putGetPromise = client.put(key, value).then(function () {
+      return client.get(key).then(function (retrievedValue) {
+        console.log(key +' = ' + retrievedValue);
+      })
+    });
   
+    return putGetPromise.finally(function() {
+      // Regardless of the result, disconnect client
+      return client.disconnect().then(function() { console.log("Disconnected") });
+    });
   }).catch(function(error) {
   
-    console.log("Got error: " + error.message);
+    console.log("Got error: " + error);
   
-  });
-    
+  }); 
   res.send(200);
 });
 
